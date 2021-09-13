@@ -4,6 +4,7 @@ var generatePassword = function() {
   var confirmLength = prompt("How many characters would you like your password to have? (8-128)");
   if (confirmLength > 7 && confirmLength < 129) {
       alert("Your password will have " + confirmLength + " characters in it.");
+      var length = confirmLength;
   } else {
       alert("Entry not valid. Please enter a valid length (8-128 characters)");
       return generatePassword(confirmLength);
@@ -14,7 +15,7 @@ var generatePassword = function() {
           var lowercase = "abcdefghijklmonpqrstuvwxyz";
       } else {
           alert("Your password will NOT have lowercase letters in it.");
-          var lowercase = null;
+          var lowercase = "";
       }
   var confirmUppercase = confirm("Will your password contain uppercase letters? Select 'OK' for yes or 'Cancel' for no.");
       if (confirmUppercase === true) {
@@ -22,7 +23,7 @@ var generatePassword = function() {
           var uppercase = "ABCDEFGHIJKLMONPQRSTUVWXYZ";
       } else {
           alert("Your password will NOT have uppercase letters in it.");
-          var uppercase = null;
+          var uppercase = "";
       }
   var confirmNumbers = confirm("Will your password contain numbers? Select 'OK' for yes or 'Cancel' for no.");
       if (confirmNumbers === true) {
@@ -30,7 +31,7 @@ var generatePassword = function() {
           var numbers = "0123456789"
       } else {
           alert("Your password will NOT have numbers in it.");
-          var numbers = null;
+          var numbers = "";
       }
   var confirmSpecialcharacters = confirm("Will your password contain special characters? Select 'OK' for yes or 'Cancel' for no.");
       if (confirmSpecialcharacters === true) {
@@ -38,15 +39,17 @@ var generatePassword = function() {
           var specialCharacters = "~!@#$%^&*()-+=|<>?/"
       } else {
           alert("Your password will NOT have special characters in it.");
-          var specialCharacters = null;
+          var specialCharacters = "";
         }
+        
       if (confirmLowercase === false && confirmUppercase === false && confirmNumbers === false && confirmSpecialCharacters === false) {
-          return generatePassword();
+        alert("Invalid option selection")
+        return generatePassword();
       } else {
           var passwordString = (lowercase + uppercase + numbers + specialCharacters);
 
-          for (var i = 0; i < confirmLength; i++) {
-            password = passwordString.charAt(Math.floor(Math.random() * passwordString.confirmLength));
+          for (var i = 0; i < length; i++) {
+            password = passwordString[Math.floor(Math.random() * length)] + password;
           };
         }
   return password;
