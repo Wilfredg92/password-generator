@@ -1,81 +1,65 @@
 // Assignment code here
 
+var generatePassword = function() {
+  var confirmLength = prompt("How many characters would you like your password to have? (8-128)");
+  if (confirmLength > 8 && confirmLength < 128) {
+      alert("Your password will have " + confirmLength + " characters in it.");
+  } else {
+      alert("Entry not valid. Please enter a valid length (8-128 characters)");
+      return generatePassword(confirmLength);
+  }
+  var confirmLowercase = confirm("Will your password contain lowercase letters? Select 'OK' for yes or 'Cancel' for no.");
+      if (confirmLowercase === true) {
+          alert("Your password will have lowercase letters in it.");
+      } else {
+          alert("Your password will NOT have lowercase letters in it.");
+      }
+  var confirmUppercase = confirm("Will your password contain uppercase letters? Select 'OK' for yes or 'Cancel' for no.");
+      if (confirmUppercase === true) {
+          alert("Your password will have uppercase letters in it.");
+      } else {
+          alert("Your password will NOT have uppercase letters in it.");
+      }
+  var confirmNumbers = confirm("Will your password contain numbers? Select 'OK' for yes or 'Cancel' for no.");
+      if (confirmNumbers === true) {
+          alert("Your password will have numbers in it.");
+      } else {
+          alert("Your password will NOT have numbers in it.");
+      }
+  var confirmSpecialcharacters = confirm("Will your password contain special characters? Select 'OK' for yes or 'Cancel' for no.");
+      if (confirmSpecialcharacters === true) {
+          alert("Your password will have special characters in it.");
+      } else {
+          alert("Your password will NOT have special characters in it.");
+      }
+      if (confirm.confirmLowercase === false && confirm.confirmUppercase === false && confirm.confirmNUmbers === false && confirm.confirmSpecialCharacters === false) {
+          alert("🤦 Lets do this again 🤦");
+          return generatePassword(confirmLength);
+      } else {
+          alert("almost there");
+      }
+
+  }
+  
+
+
+
+
+
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+var password = generatePassword();
+var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+passwordText.value = password;
 
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-/* GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-Mock-Up */
-
-
-// When I click the button I generate a prompt window asking me if i'd like to select my criteria.
-  // If 'yes', begin generate function. --> New window prompt for length
-
-  // function to check if player wants to fight or skip
-var writePassword = function() {
-
-  // ask player if they'd like to fight or run
-  var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
-
-  // validate prompt answer
-  if (promptFight === "" || promptFight === null) {
-    window.alert("You need to provide a valid answer! Please try again.");
-    // use return to call it again and stop the rest of this function from running
-    return fightOrSkip();
-  }
-
-  
-  // When window prompt opens it will ask for the length of the password (min. 8 - max. 128)
-    // If valid input --> New window prompt for character types
-    // If not valid input --> Tell invalid input and rerun prompt
-
-  // When window prompt opens it will ask for th
-
-  // If 'no', begin randomization function
-
-  /* GAME INFORMATION / VARIABLES */
-
-
-
-function = generatePasssword();
-
-
-
- 
-
-
-
-var characters = {
-  lowercase: abcdefghijklmnopqrstuvwxyz,
-  uppercase: ABCDEFGHIJKLMNOPQRSTUVWXYZ,
-  numerical: 0123456789,
-  specialcharacters: ~!@#$%&*()-+?,
-}
